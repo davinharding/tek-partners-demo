@@ -1,25 +1,35 @@
 <template>
-  <div>
-    <h1>Continent: {{ continent }}</h1>
-    <h2>Mountain: {{ mountain }}</h2>
-    <p>Path: {{ $route.path }}</p>
-    <NuxtLink to="/">Back to Mountains</NuxtLink>
+  <div class="text-center">
+    <h2>Title: {{ title }}</h2>
+    <p>{{ author }} </p>
+    <NuxtLink to="/books">Back to Mountains</NuxtLink>
   </div>
 </template>
 <script>
 export default {
-  async asyncData({ params, redirect }) {
-    const mountains = await fetch(
-      'https://api.nuxtjs.dev/mountains'
-    ).then((res) => res.json())
+  async asyncData({ params, redirect, $axios }) {
+    const { books, authors } = await $axios.$get('http://localhost:3000/Datastore.json');
 
-    const filteredMountain = mountains.find(
+    console.log(books);
+
+    console.log(authors);
+
+    const filteredBook = books.find(
       (el) =>
-        el.slug === params.mountain
+        el.id === parseInt(params.book)
     )
-    if (filteredMountain) {
+
+    
+    console.log(filteredBook);
+    if (filteredBook) {
+      const filteredAuthor = authors.find(
+            (el) => 
+              el.id === filteredBook.author
+      )
+
       return {
-        mountain: filteredMountain.title
+        title: filteredBook.title,
+        author: `${filteredAuthor.firstName} ${filteredAuthor.lastName}`
       }
     } else {
       redirect('/')

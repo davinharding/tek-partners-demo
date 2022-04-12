@@ -1,20 +1,18 @@
 <template>
   <div>
-    <ul v-for="mountain in mountains" :key="mountain.id">
-      <NuxtLink :to="`${mountain.slug}`">
-        <li>{{ mountain.title }}</li>
+    <ul v-for="book in books" :key="book.id">
+      <NuxtLink :to="`${book.id}`">
+        <li>{{ book.title }}</li>
       </NuxtLink>
     </ul>
   </div>
 </template>
 <script>
 export default {
-  async asyncData() {
-    const mountains = await fetch(
-      'https://api.nuxtjs.dev/mountains'
-    ).then((res) => res.json())
-
-    return { mountains }
-  }
+async asyncData({ $axios }) {
+  const { books } = await $axios.$get('http://localhost:3000/Datastore.json');
+  console.log(books);
+  return { books }
+}
 }
 </script>

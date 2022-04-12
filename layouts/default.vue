@@ -8,13 +8,9 @@
         <li>
           <NuxtLink to="/Books">Books</NuxtLink>
         </li>
-        <li>
-          <NuxtLink to="/Authors">Authors</NuxtLink>
-        </li>
       </ul>
       <h1 class="text-3xl py-6 text-center" >The Books App</h1>
-    </nav>
-      <nuxt-img class="mx-auto" src="/books.jpg" />
+    </nav>      
       <Nuxt />
   </div>
 </template>
