@@ -1,8 +1,13 @@
 <template>
   <div class="text-center">
+    <img :src="img" width="400" class="mx-auto
+    "/>
     <h2>Title: {{ title }}</h2>
-    <p>{{ author }} </p>
-    <NuxtLink to="/books">Back to Mountains</NuxtLink>
+    <p>Author: {{ author }} </p>
+    <p>Publisher: {{ publisher }} </p>
+    <p>ISBN: {{ isbn }} </p>
+    <p>Year: {{ year }} </p>
+    <NuxtLink to="/books">Back to Books</NuxtLink>
   </div>
 </template>
 <script>
@@ -29,7 +34,11 @@ export default {
 
       return {
         title: filteredBook.title,
-        author: `${filteredAuthor.firstName} ${filteredAuthor.lastName}`
+        author: `${filteredAuthor.firstName} ${filteredAuthor.lastName}`,
+        img: filteredBook.coverImageUrl,
+        publisher: filteredBook.publisher,
+        isbn: filteredBook.isbn,
+        year: filteredBook.year
       }
     } else {
       redirect('/')
