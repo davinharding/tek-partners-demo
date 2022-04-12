@@ -6,7 +6,10 @@
           <NuxtLink to="/">Home</NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/Books">Books</NuxtLink>
+          <NuxtLink to="/booksIndex">Books</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/authorsIndex">Authors</NuxtLink>
         </li>
       </ul>
       <h1 class="text-3xl py-6 text-center" >The Books App</h1>

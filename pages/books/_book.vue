@@ -1,6 +1,9 @@
 <template>
   <div class="text-center">
-    <img :src="img" width="400" class="mx-auto
+    <img
+      :src="img" 
+      width="400" 
+      class="mx-auto
     "/>
     <h2>Title: {{ title }}</h2>
     <p>Author: {{ author }} </p>
@@ -15,17 +18,15 @@ export default {
   async asyncData({ params, redirect, $axios }) {
     const { books, authors } = await $axios.$get('http://localhost:3000/Datastore.json');
 
-    console.log(books);
+    // console.log(books);
 
-    console.log(authors);
+    // console.log(params);
 
     const filteredBook = books.find(
       (el) =>
         el.id === parseInt(params.book)
     )
-
     
-    console.log(filteredBook);
     if (filteredBook) {
       const filteredAuthor = authors.find(
             (el) => 
