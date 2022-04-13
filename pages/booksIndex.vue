@@ -1,7 +1,9 @@
 <template>
   <div >    
     <ul v-for="book in books" :key="book.id" class="container mx-auto lg:w-4/12 lg:shadow-lg my-4">
-      <img :src="book.coverImageUrl" width="75" />
+      <NuxtLink :to="`books/${book.id}`">
+        <img :src="book.coverImageUrl" width="75" />
+      </NuxtLink>
       <NuxtLink :to="`books/${book.id}`">
         <li class="text-left">{{ book.title }}</li>
         <li class="text-sm">{{ book.authorName }} </li>
