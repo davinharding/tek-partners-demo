@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center">
+  <div class="text-center container mx-auto lg:w-1/4 lg:shadow-lg">
     <img
       :src="img" 
       width="400" 
@@ -16,11 +16,7 @@
 <script>
 export default {
   async asyncData({ params, redirect, $axios }) {
-    const { books, authors } = await $axios.$get('http://localhost:3000/Datastore.json');
-
-    // console.log(books);
-
-    // console.log(params);
+    const { books, authors } = await $axios.$get(process.env.baseURL + '/Datastore.json');
 
     const filteredBook = books.find(
       (el) =>

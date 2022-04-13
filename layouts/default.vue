@@ -1,7 +1,8 @@
 <template>
-  <div>
-    <nav>
-      <ul>
+  <div class="">
+    <nav class="flex flex-row justify-center py-4">
+      <h1 class="text-3xl" >The Books App</h1>
+      <ul class="">
         <li>
           <NuxtLink to="/">Home</NuxtLink>
         </li>
@@ -11,8 +12,7 @@
         <li>
           <NuxtLink to="/authorsIndex">Authors</NuxtLink>
         </li>
-      </ul>
-      <h1 class="text-3xl py-6 text-center" >The Books App</h1>
+      </ul>      
     </nav>      
       <Nuxt />
   </div>
@@ -51,14 +51,14 @@ main {
 }
 
 img {
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
 }
 
 ul {
   list-style-type: none;
   padding: 0;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   flex-wrap: wrap;
 }
 li {
