@@ -1,10 +1,10 @@
 <template>
-  <div class="text-center container mx-auto lg:w-1/4 lg:shadow-lg">
+  <div class="text-center container mx-auto lg:w-1/4 lg:shadow-lg rounded-md">
     <img
       :src="img" 
       width="400" 
-      class="mx-auto
-    "/>
+      class="mx-auto rounded-t-md"
+    />
     <h2>Title: {{ title }}</h2>
     <p>Author: {{ author }} </p>
     <p>Publisher: {{ publisher }} </p>
