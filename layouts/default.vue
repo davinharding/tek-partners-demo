@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="flex flex-row justify-center py-4">
+    <nav class="flex flex-row justify-center py-4 bg-gradient-to-r from-blue-500 to-purple-500">
       <h1 class="text-3xl" >The Books App</h1>
       <ul class="">
         <li>
@@ -20,7 +20,7 @@
 
 <style>
 :root {
-  --primary-color: #00c58e;
+  --primary-color: white;
 }
 
 body {
@@ -67,6 +67,6 @@ nav {
   padding: 0 1rem;
 }
 a.nuxt-link-exact-active {
-  color: #00c58e;
+  color: white;
 }
 </style>

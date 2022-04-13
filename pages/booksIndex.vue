@@ -1,10 +1,10 @@
 <template>
-  <div > 
+  <div class=""> 
     <div v-for="book in books" :key="book.id">  
       <NuxtLink :to="`books/${book.id}`">
         <ul  class="container mx-auto lg:w-4/12 lg:shadow-lg my-4 rounded-md hover:shadow-2xl">
           <div>
-            <img :src="book.coverImageUrl" width="75" />
+            <img :src="book.coverImageUrl" width="75" class="rounded-md"/>
           </div>
           <div>
             <li class="text-left">{{ book.title }}</li>
@@ -24,7 +24,7 @@ export default {
   async asyncData({ $axios }) {
     const { books, authors } = await $axios.$get(process.env.baseURL + '/Datastore.json');
 
-    books.map((e) =>{
+    books.map((e) => {
       const respAuthor = authors.find((el) => el.id === e.author);
       e.authorName = respAuthor.firstName + ' ' + respAuthor.lastName;
     })

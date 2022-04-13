@@ -1,7 +1,7 @@
 <template>
-    <div class="text-center bg-stone-900">
-      <img class="mx-auto" src="/books.jpg" />
-      Welcome to the books app!  Please select a tab from the top navbar to get started.
+    <div class="text-center h-screen">
+      <img class="mx-auto rounded-md pt-8" src="/books.jpg" />
+      Welcome to the books app!  Select a tab from the top navbar to get started.
     </div>
 </template>
 <script>
