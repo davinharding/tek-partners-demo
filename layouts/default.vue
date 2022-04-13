@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div>
     <nav class="flex flex-row justify-center py-4">
       <h1 class="text-3xl" >The Books App</h1>
       <ul class="">
@@ -48,10 +48,6 @@ main {
   padding: 0 1rem;
   max-width: 1280px;
   text-align: center;
-}
-
-img {
-  /* margin-bottom: 1rem; */
 }
 
 ul {

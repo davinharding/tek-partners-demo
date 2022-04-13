@@ -1,15 +1,19 @@
 <template>
-  <div >    
-    <ul v-for="book in books" :key="book.id" class="container mx-auto lg:w-4/12 lg:shadow-lg my-4">
+  <div > 
+    <div v-for="book in books" :key="book.id">  
       <NuxtLink :to="`books/${book.id}`">
-        <img :src="book.coverImageUrl" width="75" />
+        <ul  class="container mx-auto lg:w-4/12 lg:shadow-lg my-4 rounded-md hover:shadow-2xl">
+          <div>
+            <img :src="book.coverImageUrl" width="75" />
+          </div>
+          <div>
+            <li class="text-left">{{ book.title }}</li>
+            <li class="text-sm">{{ book.authorName }} </li>
+            <li class="text-sm">{{ book.year }} </li>
+          </div>
+        </ul>    
       </NuxtLink>
-      <NuxtLink :to="`books/${book.id}`">
-        <li class="text-left">{{ book.title }}</li>
-        <li class="text-sm">{{ book.authorName }} </li>
-        <li class="text-sm">{{ book.year }} </li>
-      </NuxtLink>
-    </ul>
+    </div>
   </div>
 </template>
 <script>
