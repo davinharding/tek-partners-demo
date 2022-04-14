@@ -1,6 +1,8 @@
 # Tek Partners Demo
 
-This project was built using Nuxt.js which is similar to Next.js but works in tandem with Vue as opposed to React.  It offers several built in features such as file system routing, code splitting, static site generation and server side rendering.  
+This project is a small front end app that allows you to view books and their authors.  It features dynamic, data-driven routing and mobile responsiveness.
+
+It was built using Nuxt.js which is similar to Next.js but works in tandem with Vue as opposed to React.  It offers several built in features such as file system routing, code splitting, static site generation and server side rendering.  
 
 Additionally, Tailwind was used as a design framework for a modular, modern design.
 
