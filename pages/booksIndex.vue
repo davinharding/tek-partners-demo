@@ -1,12 +1,12 @@
 <template>
-  <div class=""> 
+  <div class="bg-gradient-to-r from-purple-500 to-blue-500 h-max pb-4"> 
     <div v-for="book in books" :key="book.id">  
       <NuxtLink :to="`books/${book.id}`">
-        <ul  class="container mx-auto lg:w-4/12 lg:shadow-lg my-4 rounded-md hover:shadow-2xl">
+        <ul  class="container mx-auto lg:w-4/12 lg:shadow-md mb-4 rounded-md hover:shadow-2xl bg-gray-800 text-white">
           <div>
-            <img :src="book.coverImageUrl" width="75" class="rounded-md"/>
+            <img :src="book.coverImageUrl" width="75" class="rounded-l-md"/>
           </div>
-          <div>
+          <div class="decoration-white">
             <li class="text-left">{{ book.title }}</li>
             <li class="text-sm">{{ book.authorName }} </li>
             <li class="text-sm">{{ book.year }} </li>

@@ -1,16 +1,18 @@
 <template>
-  <div class="text-center container mx-auto lg:w-1/4 lg:shadow-lg rounded-md">
-    <img
-      :src="img" 
-      width="400" 
-      class="mx-auto rounded-t-md"
-    />
-    <h2>Title: {{ title }}</h2>
-    <p>Author: {{ author }} </p>
-    <p>Publisher: {{ publisher }} </p>
-    <p>ISBN: {{ isbn }} </p>
-    <p>Year: {{ year }} </p>
-    <NuxtLink to="/books">Back to Books</NuxtLink>
+  <div class="bg-gradient-to-r from-purple-500 to-blue-500 h-screen">
+    <div class="text-center container mx-auto lg:w-1/4 lg:shadow-lg rounded-md bg-gray-800 text-white">
+      <img
+        :src="img" 
+        width="400" 
+        class="mx-auto rounded-t-md"
+      />
+      <h2>Title: {{ title }}</h2>
+      <p>Author: {{ author }} </p>
+      <p>Publisher: {{ publisher }} </p>
+      <p>ISBN: {{ isbn }} </p>
+      <p>Year: {{ year }} </p>
+      <NuxtLink to="/booksIndex" class="font-bold">Back to Books</NuxtLink>
+    </div>
   </div>
 </template>
 <script>
