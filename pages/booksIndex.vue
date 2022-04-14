@@ -27,8 +27,8 @@ export default {
     books.map((e) => {
       const respAuthor = authors.find((el) => el.id === e.author);
       e.authorName = respAuthor.firstName + ' ' + respAuthor.lastName;
+      return e;
     })
-    console.log(books, authors);
     return { books }
   }
 }

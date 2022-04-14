@@ -12,10 +12,6 @@ export default {
   async asyncData({ params, redirect, $axios }) {
     const { authors } = await $axios.$get(process.env.baseURL + '/Datastore.json');
 
-    console.log(authors);
-
-    console.log(params);
-
     const filteredAuthor = authors.find(
           (el) => 
             el.id === parseInt(params.author)

@@ -1,9 +1,9 @@
 <template>
   <div>
     <nav class="flex flex-row justify-center py-4 bg-gradient-to-r from-blue-500 to-purple-500">
-      <h1 class="text-3xl" >The Books App</h1>
-      <ul class="">
-        <li>
+      <NuxtLink to="/"><h1 class="text-3xl" >The Books App</h1></NuxtLink>
+      <ul>
+        <li class="hidden">
           <NuxtLink to="/">Home</NuxtLink>
         </li>
         <li>
@@ -54,7 +54,6 @@ ul {
   list-style-type: none;
   padding: 0;
   display: flex;
-  /* justify-content: center; */
   flex-wrap: wrap;
 }
 li {
