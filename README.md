@@ -1,68 +1,106 @@
-# tek-partners-demo
+# Tek Partners Demo
 
-## Build Setup
+This project was built using Nuxt.js which is similar to Next.js but works in tandem with Vue as opposed to React.  It offers several built in features such as file system routing, code splitting, static site generation and server side rendering.  
 
-```bash
-# install dependencies
-$ npm install
+Additionally, Tailwind was used as a design framework for a modular, modern design.
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+Lastly, axios was used as a data fetching library to import Datastore.json from the static/ directory.
+<br>
 
-# build for production and launch server
-$ npm run build
-$ npm run start
+### Below is the orignal Readme.md supplied with this exercise
 
-# generate static project
-$ npm run generate
-```
+***
+<br>
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+# Introduction 
+TekPartners Pro Services Wed Developer Coding Excercise<br>
 
-## Special Directories
+Depending on the postion/project/role you're being considered for, you will be asked to one or both of these exercies. If you are only asked to done, you are still free to do both if you like.<br>
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+Unless otherwise directed, please use the libraries outlined below. If you would like to bring in an additional library that is not listed here to help accomplish the task, please feel free to do so. We're always lookig for people who can bring new ideas and ways of doing things to our teams, and this extends to our technical stack!<br>
 
-### `assets`
+Our current stack can be found [here](https://stackshare.io/jamesbender/v1/main). If there is library/framework you would like to use that is not listed here or has an alternative listed here (i.e. instead of Bootstrap we use Tailwind) please provide a description of the library in the README and why you chose it.
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
+## Instructions
+You have received this directory within the .zip archive.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
+1. Create a repo out of the directory with this README.md in the root of it.
+2. Work on either task following the guidelines in README.md within chosen directory.
+3. Follow best practices of saving changes to the repo.
+4. Upload the repo to your personal Github account and share it with one collaborator:
+    * JamesBender - James Bender, Lead Application Architect, TekPartners.
 
-### `components`
+# Front-end
+* Should be in React unless instructed otherwise
+    *  Bonus points for using NextJS
+    * If not using NextJS, react-router should be used for routing.
+* Routes:
+    * / - simple landing page, links to the other routes
+    * /books - for requesting a list of all books in the dataset
+    * /books/(:id) - for request detailed information about a specific book
+    * Bonus routes:
+        * /authors - list of authors
+        * /authors/(:id) - detailed information about a specific author
+* In the "front-end" directory you fill find a Datastore.json file. This is your "database".
+    * In a normal app, you would get this data via a backend service. If you are doing the back-end exercise as well, you can use that servcie to get your data.
+    * If you're not using a true back-end, you can implement whatever sort of in-memory/ad hoc data server you like. However, it MUST be decoupled from the front-end components as a traditaionl service would be.
+* Visual design is up to the developer, but there must be some design done
+    * Bonus points for responsive design
+* The list at /books must contain the title of the book, the authors name, the cover images, and the year published
+* Routes should be a direct link. If I paste /books/123 into a browser, the book with the id of 123 should be displayed
 
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
-
-### `layouts`
-
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
-
-### `pages`
-
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
-
-### `plugins`
-
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
-
-### `static`
-
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+# Back-end
+* Create a Node-based front end. You can use one of these options:
+    * Create an Express server, but include an /graphql endpoint using Apollo
+    * Create an Apollo Server to serve GraphQL
+* You will be provided with a Datastore.json file. This is your "database". You should implement an in-memory "database" to store this information. This can be hand-rolled, or you can use a package. 
+* You must provide queries to return the list of books and the book details. Do not over/under fetch! Bonus for providing queries for author/authors
+    * Schema:<br>
+    ```
+        {
+            books {
+                id
+                title
+                author
+                year
+                publisher
+                isbn 
+                coverImageUrl                
+                author {
+                    id
+                    firstName
+                    lastName
+                    imageUrl
+                    books
+                }
+            
+        }
+    ```
+* You must add a mutation to add a new book. You can use an existing author, or for bonus points you can provide a mutation to add an author. (do not worry about providing a valid URL for the book cover)
+* Bonus:
+    * Provide a mutation for creating/authenticating users: 
+    ```
+        mutation createUser($username: String), $password: String) {
+            createUser(username: $username, password: $password) {
+                token
+                user {
+                    id
+                    name
+                }
+            }
+        }
+    ```
+    * Provide a mutation to enable users to login:
+    ```
+        mutation login($username: String, $password: String) {
+            login(username: $username, password: $password) {
+                token 
+                user {
+                    id
+                    name
+                }
+            }
+        }
+    ```
+    * Update the mutation to only allow authenticated users to add/change data
+* The /graphql endpoint must be accessible to external clients
